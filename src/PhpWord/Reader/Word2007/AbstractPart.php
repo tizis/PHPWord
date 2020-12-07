@@ -189,6 +189,10 @@ abstract class AbstractPart
                 return 0;
             }
 
+            if (is_numeric($paragraphStyle['styleName'])) {
+                return (int)$paragraphStyle['styleName'];
+            }
+
             $headingMatches = array();
             preg_match('/heading(\d)/', mb_strtolower(str_replace(' ', '', $paragraphStyle['styleName'])), $headingMatches);
 
